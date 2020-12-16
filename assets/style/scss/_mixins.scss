@@ -1,0 +1,19 @@
+%drop-shadow{
+    box-shadow: 0px 5px 5px 0px rgba(32, 32, 32, 0.61);
+}
+
+@mixin slideButton($color, $hovercolor) {
+    border-radius: 0 !important;  
+    background-color: $color !important;
+    text-align: center;
+    text-transform: uppercase; 
+    border: 2px solid $color;
+    box-shadow: inset 0 0 0 0 $hovercolor;  
+    transition: box-shadow 1s ease, color 1s;
+    color: $hovercolor;
+    
+    &:hover, &:focus{ 
+        color : $color;        
+        box-shadow: inset 90em 0 0 0 $hovercolor;         
+    }
+}

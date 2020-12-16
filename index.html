@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Vue.JS</title>    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style/css/main.css">
+    
+</head>
+<body>
+
+    <div id="app">
+
+        <header>
+            <div class="banner">
+                <div><a href="#">Home</a></div>
+                <div id="cartIcon"   v-on:click = "cartIsShowed = !cartIsShowed"><a href="#"><i class="fas fa-shopping-bag"><span> {{ cart.length }} </span> </i> Shopping cart | {{ cartWithSale }} €</a> </div>
+            </div>
+
+            <div id="shopping-cart" :class = "animated" >
+                <div id="cartHeader">
+                    <p class="h3">Panier</p>
+                </div>
+               <div id="cartBody">
+                <table>
+                    <p v-if="cart.length === 0">Your cart is empty</p>
+                    <tr v-for="product in cart">
+                        <td>{{product.title}} </td>
+                        <td>{{product.price}} €</td>
+                    </tr>
+                </table>
+                <p id="discount"> 
+                   
+                    <input type="text" v-model="discountCode" name="discount" placeholder="You have a code ?"> 
+                    <span v-if="discountCode === 'noel2020'"><i class="fas fa-check"></i></span>
+                    <span v-else><i class="fas fa-times"></i></span>
+
+                </p> 
+
+                <p id="cartTotal"><span>Total : {{cartTotal}} €</span> <span v-if="discountCode === 'noel2020'"> {{cartWithSale}} €</span></p>
+               </div>
+            </div>
+            <div class="title">
+                <h1> {{ pageTitle }} </h1>
+            </div>
+        </header>
+
+      
+       <section id="productsHead">
+            <h2> {{ productHeadTitle }} </h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab in quos blanditiis vero porro eum error obcaecati cumque dicta, nobis eveniet culpa et quia maxime odio vel laboriosam saepe placeat.</p>
+       </section>
+        <section id="productsBody">
+            <h2> {{ productBodyTitle }} </h2>
+            <p>Look at my wondefull products that you'll love to offer</p>
+
+            <div class="container" id="products-list">
+               <div class="row">
+                    
+                    <div v-for="product in products" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card product-thumbnail" >
+                            <div class="miniature" v-on:mouseover="product.hovered = true"
+                            v-on:mouseleave="product.hovered = false">
+                                <img :src="product.hovered ? (product.imageHover ?? product.image) : product.image" class="card-img-top" >
+                            </div>
+                            <div class="card-body">
+                            <h5 class="card-title"> {{ product.title }}  </h5>
+                            <p class="card-text">
+                                <span class="product-price"> {{ product.price }} €</span>
+                                <span v-if="product.stock === 1" class="product-stock"> {{product.stock}} item in stock </span>
+                                <span v-else-if="product.stock > 1" class="product-stock"> {{product.stock}} items in stock </span>
+                                <span v-else class="product-stock"> Out of stock </span>
+                                <ul class="product-tags">
+                                    <li v-for="(tag, name) in product.tags">  {{tag}}</li>
+
+                                </ul>
+                            </p>
+                            <button class="btn" v-on:click="addToCart(product)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                   
+               </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Copyright Caroline Roy &copy; 2020</p>
+        </footer>
+
+    </div>
+    
+   
+    <!-- SCRIPTS -->
+    <!-- Import Vue.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

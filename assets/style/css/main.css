@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+  font-size: 2.5rem;
+  border: solid 2px #fff;
+  padding: 15px;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.banner, #shopping-cart {
+  box-shadow: 0px 5px 5px 0px rgba(32, 32, 32, 0.61);
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: url(../images/catkimono.jpg) 50% 30% no-repeat;
+  background-size: cover;
+  height: 40vh;
+  z-index: 10;
+}
+header .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+header .title h1 {
+  height: max-content;
+  color: #fff;
+}
+
+@keyframes shoppingCartIn {
+  from {
+    right: -300px;
+    opacity: 0.8;
+  }
+  to {
+    right: 0px;
+  }
+}
+@keyframes shoppingCartOut {
+  from {
+    right: 0px;
+    opacity: 1;
+  }
+  to {
+    right: -300px;
+    opacity: 0.8;
+  }
+}
+#shopping-cart {
+  background: #fff;
+  position: fixed;
+  right: 0px;
+  top: 40px;
+  width: 300px;
+  z-index: 2000000;
+  height: 100vh;
+  color: #fff;
+  background-color: #111;
+  overflow: hidden;
+}
+#shopping-cart table {
+  margin-bottom: 20px;
+  width: 100%;
+}
+#shopping-cart table tr {
+  width: 100%;
+}
+#shopping-cart td:nth-child(2) {
+  text-align: right;
+}
+#shopping-cart.animateIn {
+  animation: shoppingCartIn 1.5s;
+}
+#shopping-cart.animateOut {
+  animation: shoppingCartOut 1.5s;
+  opacity: 0;
+}
+#shopping-cart #cartHeader {
+  text-align: center;
+  background: #b080b3;
+  color: #fff;
+  font-size: 0.5rem;
+}
+#shopping-cart #cartBody {
+  padding: 15px;
+}
+#shopping-cart p {
+  text-align: center;
+}
+#shopping-cart p#cartTotal {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+#shopping-cart p#discount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner {
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  background: #111;
+  color: #fff;
+}
+.banner #cartIcon i {
+  position: relative;
+  margin-right: 5px;
+}
+.banner #cartIcon i span {
+  font-family: "Roboto";
+  bottom: -5px;
+  right: -5px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  background: #b080b3;
+  color: #fff;
+  border-radius: 100px;
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
+section {
+  text-align: center;
+  padding: 20px 50px;
+}
+
+#productsHead {
+  background: #2c2a2b;
+  color: #fff;
+}
+
+#products-list {
+  margin: 50px auto;
+}
+
+.product-thumbnail {
+  height: 100%;
+  font-size: 0.9rem;
+  border-radius: 0;
+  width: 100%;
+}
+.product-thumbnail .miniature {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  transition: ease-in-out 1s;
+}
+.product-thumbnail .miniature img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.product-thumbnail .card-title {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.product-thumbnail .card-text span {
+  display: block;
+}
+.product-thumbnail .card-text span.product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.product-thumbnail ul {
+  list-style: none;
+  padding: 0;
+}
+.product-thumbnail ul li {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
+}
+.product-thumbnail .btn {
+  border-radius: 0 !important;
+  background-color: #111 !important;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #111;
+  box-shadow: inset 0 0 0 0 #fff;
+  transition: box-shadow 1s ease, color 1s;
+  color: #fff;
+  font-size: 1rem;
+  margin: 10px;
+  font-weight: 700;
+}
+.product-thumbnail .btn:hover, .product-thumbnail .btn:focus {
+  color: #111;
+  box-shadow: inset 90em 0 0 0 #fff;
+}
+
+footer {
+  padding: 2px 5px;
+  text-align: right;
+  background: #111;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=main.css.map */
